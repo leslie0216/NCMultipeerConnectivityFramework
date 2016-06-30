@@ -6,8 +6,7 @@
 //  Copyright © 2016 Chengzhao Li. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
-@interface NCMultipeerConnectivity : NSObject
-
-@end
+#import "NCMCPeerID.h"
+#import "NCMCSession.h"
+#import "NCMCCentralService.h"
+#import "NCMCPeripheralService"

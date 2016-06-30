@@ -6,10 +6,54 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		9BD0F7011D258C8C0095354A /* Framework */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 9BD0F7021D258C8C0095354A /* Build configuration list for PBXAggregateTarget "Framework" */;
+			buildPhases = (
+				9BD0F7071D258CAB0095354A /* MultiPlatform Build */,
+			);
+			dependencies = (
+				9BD0F7061D258C990095354A /* PBXTargetDependency */,
+			);
+			name = Framework;
+			productName = Framework;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		9BD0F6CE1D258A660095354A /* NCMultipeerConnectivity.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9BD0F6CD1D258A660095354A /* NCMultipeerConnectivity.h */; };
-		9BD0F6D01D258A660095354A /* NCMultipeerConnectivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0F6CF1D258A660095354A /* NCMultipeerConnectivity.m */; };
+		9BD0F6EC1D258AF40095354A /* NCMCBluetoothLEManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD0F6D81D258AF40095354A /* NCMCBluetoothLEManager.h */; };
+		9BD0F6ED1D258AF40095354A /* NCMCBluetoothLEManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0F6D91D258AF40095354A /* NCMCBluetoothLEManager.m */; };
+		9BD0F6EE1D258AF40095354A /* NCMCCentralService+Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD0F6DA1D258AF40095354A /* NCMCCentralService+Core.h */; };
+		9BD0F6EF1D258AF40095354A /* NCMCDeviceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD0F6DB1D258AF40095354A /* NCMCDeviceInfo.h */; };
+		9BD0F6F01D258AF40095354A /* NCMCDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0F6DC1D258AF40095354A /* NCMCDeviceInfo.m */; };
+		9BD0F6F11D258AF40095354A /* NCMCMessageData.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD0F6DD1D258AF40095354A /* NCMCMessageData.h */; };
+		9BD0F6F21D258AF40095354A /* NCMCMessageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0F6DE1D258AF40095354A /* NCMCMessageData.m */; };
+		9BD0F6F31D258AF40095354A /* NCMCPeerID+Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD0F6DF1D258AF40095354A /* NCMCPeerID+Core.h */; };
+		9BD0F6F41D258AF40095354A /* NCMCPeripheralInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD0F6E01D258AF40095354A /* NCMCPeripheralInfo.h */; };
+		9BD0F6F51D258AF40095354A /* NCMCPeripheralInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0F6E11D258AF40095354A /* NCMCPeripheralInfo.m */; };
+		9BD0F6F61D258AF40095354A /* NCMCPeripheralService+Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD0F6E21D258AF40095354A /* NCMCPeripheralService+Core.h */; };
+		9BD0F6F71D258AF40095354A /* NCMCSession+Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD0F6E31D258AF40095354A /* NCMCSession+Core.h */; };
+		9BD0F6F81D258AF40095354A /* NCMCCentralService.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD0F6E41D258AF40095354A /* NCMCCentralService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9BD0F6F91D258AF40095354A /* NCMCCentralService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0F6E51D258AF40095354A /* NCMCCentralService.m */; };
+		9BD0F6FA1D258AF40095354A /* NCMCPeerID.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD0F6E61D258AF40095354A /* NCMCPeerID.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9BD0F6FB1D258AF40095354A /* NCMCPeerID.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0F6E71D258AF40095354A /* NCMCPeerID.m */; };
+		9BD0F6FC1D258AF40095354A /* NCMCPeripheralService.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD0F6E81D258AF40095354A /* NCMCPeripheralService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9BD0F6FD1D258AF40095354A /* NCMCPeripheralService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0F6E91D258AF40095354A /* NCMCPeripheralService.m */; };
+		9BD0F6FE1D258AF40095354A /* NCMCSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD0F6EA1D258AF40095354A /* NCMCSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9BD0F6FF1D258AF40095354A /* NCMCSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0F6EB1D258AF40095354A /* NCMCSession.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9BD0F7051D258C990095354A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BD0F6C21D258A660095354A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9BD0F6C91D258A660095354A;
+			remoteInfo = NCMultipeerConnectivity;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		9BD0F6C81D258A660095354A /* CopyFiles */ = {
@@ -27,7 +71,26 @@
 /* Begin PBXFileReference section */
 		9BD0F6CA1D258A660095354A /* libNCMultipeerConnectivity.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNCMultipeerConnectivity.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BD0F6CD1D258A660095354A /* NCMultipeerConnectivity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCMultipeerConnectivity.h; sourceTree = "<group>"; };
-		9BD0F6CF1D258A660095354A /* NCMultipeerConnectivity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCMultipeerConnectivity.m; sourceTree = "<group>"; };
+		9BD0F6D81D258AF40095354A /* NCMCBluetoothLEManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCMCBluetoothLEManager.h; sourceTree = "<group>"; };
+		9BD0F6D91D258AF40095354A /* NCMCBluetoothLEManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCMCBluetoothLEManager.m; sourceTree = "<group>"; };
+		9BD0F6DA1D258AF40095354A /* NCMCCentralService+Core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NCMCCentralService+Core.h"; sourceTree = "<group>"; };
+		9BD0F6DB1D258AF40095354A /* NCMCDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCMCDeviceInfo.h; sourceTree = "<group>"; };
+		9BD0F6DC1D258AF40095354A /* NCMCDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCMCDeviceInfo.m; sourceTree = "<group>"; };
+		9BD0F6DD1D258AF40095354A /* NCMCMessageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCMCMessageData.h; sourceTree = "<group>"; };
+		9BD0F6DE1D258AF40095354A /* NCMCMessageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCMCMessageData.m; sourceTree = "<group>"; };
+		9BD0F6DF1D258AF40095354A /* NCMCPeerID+Core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NCMCPeerID+Core.h"; sourceTree = "<group>"; };
+		9BD0F6E01D258AF40095354A /* NCMCPeripheralInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCMCPeripheralInfo.h; sourceTree = "<group>"; };
+		9BD0F6E11D258AF40095354A /* NCMCPeripheralInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCMCPeripheralInfo.m; sourceTree = "<group>"; };
+		9BD0F6E21D258AF40095354A /* NCMCPeripheralService+Core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NCMCPeripheralService+Core.h"; sourceTree = "<group>"; };
+		9BD0F6E31D258AF40095354A /* NCMCSession+Core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NCMCSession+Core.h"; sourceTree = "<group>"; };
+		9BD0F6E41D258AF40095354A /* NCMCCentralService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCMCCentralService.h; sourceTree = "<group>"; };
+		9BD0F6E51D258AF40095354A /* NCMCCentralService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCMCCentralService.m; sourceTree = "<group>"; };
+		9BD0F6E61D258AF40095354A /* NCMCPeerID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCMCPeerID.h; sourceTree = "<group>"; };
+		9BD0F6E71D258AF40095354A /* NCMCPeerID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCMCPeerID.m; sourceTree = "<group>"; };
+		9BD0F6E81D258AF40095354A /* NCMCPeripheralService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCMCPeripheralService.h; sourceTree = "<group>"; };
+		9BD0F6E91D258AF40095354A /* NCMCPeripheralService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCMCPeripheralService.m; sourceTree = "<group>"; };
+		9BD0F6EA1D258AF40095354A /* NCMCSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCMCSession.h; sourceTree = "<group>"; };
+		9BD0F6EB1D258AF40095354A /* NCMCSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCMCSession.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,13 +123,62 @@
 		9BD0F6CC1D258A660095354A /* NCMultipeerConnectivity */ = {
 			isa = PBXGroup;
 			children = (
+				9BD0F6D71D258AF40095354A /* Core */,
+				9BD0F6EA1D258AF40095354A /* NCMCSession.h */,
+				9BD0F6EB1D258AF40095354A /* NCMCSession.m */,
+				9BD0F6E61D258AF40095354A /* NCMCPeerID.h */,
+				9BD0F6E71D258AF40095354A /* NCMCPeerID.m */,
+				9BD0F6E41D258AF40095354A /* NCMCCentralService.h */,
+				9BD0F6E51D258AF40095354A /* NCMCCentralService.m */,
+				9BD0F6E81D258AF40095354A /* NCMCPeripheralService.h */,
+				9BD0F6E91D258AF40095354A /* NCMCPeripheralService.m */,
 				9BD0F6CD1D258A660095354A /* NCMultipeerConnectivity.h */,
-				9BD0F6CF1D258A660095354A /* NCMultipeerConnectivity.m */,
 			);
 			path = NCMultipeerConnectivity;
 			sourceTree = "<group>";
 		};
+		9BD0F6D71D258AF40095354A /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				9BD0F6E31D258AF40095354A /* NCMCSession+Core.h */,
+				9BD0F6DF1D258AF40095354A /* NCMCPeerID+Core.h */,
+				9BD0F6DA1D258AF40095354A /* NCMCCentralService+Core.h */,
+				9BD0F6E21D258AF40095354A /* NCMCPeripheralService+Core.h */,
+				9BD0F6DB1D258AF40095354A /* NCMCDeviceInfo.h */,
+				9BD0F6DC1D258AF40095354A /* NCMCDeviceInfo.m */,
+				9BD0F6DD1D258AF40095354A /* NCMCMessageData.h */,
+				9BD0F6DE1D258AF40095354A /* NCMCMessageData.m */,
+				9BD0F6E01D258AF40095354A /* NCMCPeripheralInfo.h */,
+				9BD0F6E11D258AF40095354A /* NCMCPeripheralInfo.m */,
+				9BD0F6D81D258AF40095354A /* NCMCBluetoothLEManager.h */,
+				9BD0F6D91D258AF40095354A /* NCMCBluetoothLEManager.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		9BD0F6D61D258AA90095354A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BD0F6FE1D258AF40095354A /* NCMCSession.h in Headers */,
+				9BD0F6FA1D258AF40095354A /* NCMCPeerID.h in Headers */,
+				9BD0F6FC1D258AF40095354A /* NCMCPeripheralService.h in Headers */,
+				9BD0F6F81D258AF40095354A /* NCMCCentralService.h in Headers */,
+				9BD0F6F31D258AF40095354A /* NCMCPeerID+Core.h in Headers */,
+				9BD0F6F71D258AF40095354A /* NCMCSession+Core.h in Headers */,
+				9BD0F6F61D258AF40095354A /* NCMCPeripheralService+Core.h in Headers */,
+				9BD0F6EF1D258AF40095354A /* NCMCDeviceInfo.h in Headers */,
+				9BD0F6EE1D258AF40095354A /* NCMCCentralService+Core.h in Headers */,
+				9BD0F6EC1D258AF40095354A /* NCMCBluetoothLEManager.h in Headers */,
+				9BD0F6F11D258AF40095354A /* NCMCMessageData.h in Headers */,
+				9BD0F6F41D258AF40095354A /* NCMCPeripheralInfo.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		9BD0F6C91D258A660095354A /* NCMultipeerConnectivity */ = {
@@ -76,6 +188,8 @@
 				9BD0F6C61D258A660095354A /* Sources */,
 				9BD0F6C71D258A660095354A /* Frameworks */,
 				9BD0F6C81D258A660095354A /* CopyFiles */,
+				9BD0F6D61D258AA90095354A /* Headers */,
+				9BD0F7001D258C390095354A /* Build Framework */,
 			);
 			buildRules = (
 			);
@@ -98,6 +212,9 @@
 					9BD0F6C91D258A660095354A = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
+					9BD0F7011D258C8C0095354A = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
 				};
 			};
 			buildConfigurationList = 9BD0F6C51D258A660095354A /* Build configuration list for PBXProject "NCMultipeerConnectivity" */;
@@ -113,20 +230,67 @@
 			projectRoot = "";
 			targets = (
 				9BD0F6C91D258A660095354A /* NCMultipeerConnectivity */,
+				9BD0F7011D258C8C0095354A /* Framework */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9BD0F7001D258C390095354A /* Build Framework */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Build Framework";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nexport FRAMEWORK_LOCN=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework\"\n\n# Create the path to the real Headers die\nmkdir -p \"${FRAMEWORK_LOCN}/Versions/A/Headers\"\n\n# Create the required symlinks\n/bin/ln -sfh A \"${FRAMEWORK_LOCN}/Versions/Current\"\n/bin/ln -sfh Versions/Current/Headers \"${FRAMEWORK_LOCN}/Headers\"\n/bin/ln -sfh \"Versions/Current/${PRODUCT_NAME}\" \\\n\"${FRAMEWORK_LOCN}/${PRODUCT_NAME}\"\n\n# Copy the public headers into the framework\n/bin/cp -a \"${TARGET_BUILD_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/\" \\\n\"${FRAMEWORK_LOCN}/Versions/A/Headers\"";
+		};
+		9BD0F7071D258CAB0095354A /* MultiPlatform Build */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "MultiPlatform Build";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\n# If we're already inside this script then die\nif [ -n \"$RW_MULTIPLATFORM_BUILD_IN_PROGRESS\" ]; then\nexit 0\nfi\nexport RW_MULTIPLATFORM_BUILD_IN_PROGRESS=1\n\nRW_FRAMEWORK_NAME=${PROJECT_NAME}\nRW_INPUT_STATIC_LIB=\"lib${PROJECT_NAME}.a\"\nRW_FRAMEWORK_LOCATION=\"${BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.framework\"\n\nfunction build_static_library {\n    # Will rebuild the static library as specified\n    #     build_static_library sdk\n    xcrun xcodebuild -project \"${PROJECT_FILE_PATH}\" \\\n    -target \"${TARGET_NAME}\" \\\n    -configuration \"${CONFIGURATION}\" \\\n    -sdk \"${1}\" \\\n    ONLY_ACTIVE_ARCH=NO \\\n    BUILD_DIR=\"${BUILD_DIR}\" \\\n    OBJROOT=\"${OBJROOT}\" \\\n    BUILD_ROOT=\"${BUILD_ROOT}\" \\\n    SYMROOT=\"${SYMROOT}\" $ACTION\n}\n\nfunction make_fat_library {\n    # Will smash 2 static libs together\n    #     make_fat_library in1 in2 out\n    xcrun lipo -create \"${1}\" \"${2}\" -output \"${3}\"\n}\n\n# 1 - Extract the platform (iphoneos/iphonesimulator) from the SDK name\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]; then\nRW_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\necho \"Could not find platform name from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\n# 2 - Extract the version from the SDK\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]; then\nRW_SDK_VERSION=${BASH_REMATCH[1]}\nelse\necho \"Could not find sdk version from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\n# 3 - Determine the other platform\nif [ \"$RW_SDK_PLATFORM\" == \"iphoneos\" ]; then\nRW_OTHER_PLATFORM=iphonesimulator\nelse\nRW_OTHER_PLATFORM=iphoneos\nfi\n\n# 4 - Find the build directory\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$RW_SDK_PLATFORM$ ]]; then\nRW_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${RW_OTHER_PLATFORM}\"\nelse\necho \"Could not find other platform build directory.\"\nexit 1\nfi\n\n# Build the other platform.\nbuild_static_library \"${RW_OTHER_PLATFORM}${RW_SDK_VERSION}\"\n\n# If we're currently building for iphonesimulator, then need to rebuild\n#   to ensure that we get both i386 and x86_64\nif [ \"$RW_SDK_PLATFORM\" == \"iphonesimulator\" ]; then\nbuild_static_library \"${SDK_NAME}\"\nfi\n\n# Join the 2 static libs into 1 and push into the .framework\nmake_fat_library \"${BUILT_PRODUCTS_DIR}/${RW_INPUT_STATIC_LIB}\" \\\n\"${RW_OTHER_BUILT_PRODUCTS_DIR}/${RW_INPUT_STATIC_LIB}\" \\\n\"${RW_FRAMEWORK_LOCATION}/Versions/A/${RW_FRAMEWORK_NAME}\"\n\n# Ensure that the framework is present in both platform's build directories\ncp -a \"${RW_FRAMEWORK_LOCATION}/Versions/A/${RW_FRAMEWORK_NAME}\" \\\n\"${RW_OTHER_BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.framework/Versions/A/${RW_FRAMEWORK_NAME}\"\n\n# Copy the framework to the user's desktop\nditto \"${RW_FRAMEWORK_LOCATION}\" \"${HOME}/Desktop/${RW_FRAMEWORK_NAME}.framework\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9BD0F6C61D258A660095354A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BD0F6D01D258A660095354A /* NCMultipeerConnectivity.m in Sources */,
+				9BD0F6F51D258AF40095354A /* NCMCPeripheralInfo.m in Sources */,
+				9BD0F6FB1D258AF40095354A /* NCMCPeerID.m in Sources */,
+				9BD0F6F01D258AF40095354A /* NCMCDeviceInfo.m in Sources */,
+				9BD0F6FD1D258AF40095354A /* NCMCPeripheralService.m in Sources */,
+				9BD0F6F91D258AF40095354A /* NCMCCentralService.m in Sources */,
+				9BD0F6FF1D258AF40095354A /* NCMCSession.m in Sources */,
+				9BD0F6ED1D258AF40095354A /* NCMCBluetoothLEManager.m in Sources */,
+				9BD0F6F21D258AF40095354A /* NCMCMessageData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9BD0F7061D258C990095354A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9BD0F6C91D258A660095354A /* NCMultipeerConnectivity */;
+			targetProxy = 9BD0F7051D258C990095354A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		9BD0F6D11D258A660095354A /* Debug */ = {
@@ -214,18 +378,38 @@
 		9BD0F6D41D258A660095354A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEAD_CODE_STRIPPING = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "include/$(PROJECT_NAME)";
 				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
 			};
 			name = Debug;
 		};
 		9BD0F6D51D258A660095354A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEAD_CODE_STRIPPING = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "include/$(PROJECT_NAME)";
 				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
+			};
+			name = Release;
+		};
+		9BD0F7031D258C8C0095354A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9BD0F7041D258C8C0095354A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -246,6 +430,14 @@
 			buildConfigurations = (
 				9BD0F6D41D258A660095354A /* Debug */,
 				9BD0F6D51D258A660095354A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9BD0F7021D258C8C0095354A /* Build configuration list for PBXAggregateTarget "Framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BD0F7031D258C8C0095354A /* Debug */,
+				9BD0F7041D258C8C0095354A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
