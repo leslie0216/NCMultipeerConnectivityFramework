@@ -9,4 +9,4 @@
 #import "NCMCPeerID.h"
 #import "NCMCSession.h"
 #import "NCMCCentralService.h"
-#import "NCMCPeripheralService"
+#import "NCMCPeripheralService.h"
