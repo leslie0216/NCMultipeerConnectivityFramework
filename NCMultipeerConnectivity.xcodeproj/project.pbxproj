@@ -1,0 +1,255 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9BD0F6CE1D258A660095354A /* NCMultipeerConnectivity.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9BD0F6CD1D258A660095354A /* NCMultipeerConnectivity.h */; };
+		9BD0F6D01D258A660095354A /* NCMultipeerConnectivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0F6CF1D258A660095354A /* NCMultipeerConnectivity.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9BD0F6C81D258A660095354A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				9BD0F6CE1D258A660095354A /* NCMultipeerConnectivity.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		9BD0F6CA1D258A660095354A /* libNCMultipeerConnectivity.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNCMultipeerConnectivity.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BD0F6CD1D258A660095354A /* NCMultipeerConnectivity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCMultipeerConnectivity.h; sourceTree = "<group>"; };
+		9BD0F6CF1D258A660095354A /* NCMultipeerConnectivity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCMultipeerConnectivity.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9BD0F6C71D258A660095354A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9BD0F6C11D258A660095354A = {
+			isa = PBXGroup;
+			children = (
+				9BD0F6CC1D258A660095354A /* NCMultipeerConnectivity */,
+				9BD0F6CB1D258A660095354A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9BD0F6CB1D258A660095354A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9BD0F6CA1D258A660095354A /* libNCMultipeerConnectivity.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9BD0F6CC1D258A660095354A /* NCMultipeerConnectivity */ = {
+			isa = PBXGroup;
+			children = (
+				9BD0F6CD1D258A660095354A /* NCMultipeerConnectivity.h */,
+				9BD0F6CF1D258A660095354A /* NCMultipeerConnectivity.m */,
+			);
+			path = NCMultipeerConnectivity;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9BD0F6C91D258A660095354A /* NCMultipeerConnectivity */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BD0F6D31D258A660095354A /* Build configuration list for PBXNativeTarget "NCMultipeerConnectivity" */;
+			buildPhases = (
+				9BD0F6C61D258A660095354A /* Sources */,
+				9BD0F6C71D258A660095354A /* Frameworks */,
+				9BD0F6C81D258A660095354A /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NCMultipeerConnectivity;
+			productName = NCMultipeerConnectivity;
+			productReference = 9BD0F6CA1D258A660095354A /* libNCMultipeerConnectivity.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9BD0F6C21D258A660095354A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Chengzhao Li";
+				TargetAttributes = {
+					9BD0F6C91D258A660095354A = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 9BD0F6C51D258A660095354A /* Build configuration list for PBXProject "NCMultipeerConnectivity" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9BD0F6C11D258A660095354A;
+			productRefGroup = 9BD0F6CB1D258A660095354A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9BD0F6C91D258A660095354A /* NCMultipeerConnectivity */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9BD0F6C61D258A660095354A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BD0F6D01D258A660095354A /* NCMultipeerConnectivity.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9BD0F6D11D258A660095354A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9BD0F6D21D258A660095354A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9BD0F6D41D258A660095354A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9BD0F6D51D258A660095354A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9BD0F6C51D258A660095354A /* Build configuration list for PBXProject "NCMultipeerConnectivity" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BD0F6D11D258A660095354A /* Debug */,
+				9BD0F6D21D258A660095354A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BD0F6D31D258A660095354A /* Build configuration list for PBXNativeTarget "NCMultipeerConnectivity" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BD0F6D41D258A660095354A /* Debug */,
+				9BD0F6D51D258A660095354A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9BD0F6C21D258A660095354A /* Project object */;
+}
