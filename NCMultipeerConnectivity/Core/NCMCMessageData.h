@@ -11,8 +11,9 @@
 @interface NCMCMessageData : NSObject
 @property(strong, nonatomic) NSString *deviceUUID;
 @property(strong, nonatomic) NSMutableData *data;
+@property(assign, nonatomic) Boolean isReliable;
 
--(instancetype)initWithDeviceUUID:(NSString*)uuid;
+-(instancetype)initWithDeviceUUID:(NSString*)uuid andIsReliable:(Boolean) reliable;
 -(void)addData:(NSData*)d;
 -(void)clearData;
 @end

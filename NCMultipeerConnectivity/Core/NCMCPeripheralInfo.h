@@ -12,6 +12,7 @@
 @interface NCMCPeripheralInfo : NSObject
 @property(strong, nonatomic)CBPeripheral *peripheral;
 @property (strong, nonatomic) CBCharacteristic *readCharacteristic;
-@property (strong, nonatomic) CBCharacteristic *writeCharacteristic;
+@property (strong, nonatomic) CBCharacteristic *writeWithResponseCharacteristic;
+@property (strong, nonatomic) CBCharacteristic *writeWithoutResponseCharacteristic;
 @property(strong, nonatomic)NSString *name;
 @end

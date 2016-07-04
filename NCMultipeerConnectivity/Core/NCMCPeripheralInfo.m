@@ -9,5 +9,5 @@
 #import "NCMCPeripheralInfo.h"
 
 @implementation NCMCPeripheralInfo
-@synthesize peripheral, name, readCharacteristic, writeCharacteristic;
+@synthesize peripheral, name, readCharacteristic, writeWithResponseCharacteristic, writeWithoutResponseCharacteristic;
 @end

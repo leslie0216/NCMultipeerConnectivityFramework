@@ -11,13 +11,15 @@
 @implementation NCMCMessageData
 @synthesize deviceUUID;
 @synthesize data;
+@synthesize isReliable;
 
--(instancetype)initWithDeviceUUID:(NSString *)uuid
+-(instancetype)initWithDeviceUUID:(NSString *)uuid  andIsReliable:(Boolean) reliable
 {
     self = [super init];
     
     if (self) {
         self.deviceUUID = uuid;
+        self.isReliable = reliable;
         self.data = [[NSMutableData alloc]init];
     }
     

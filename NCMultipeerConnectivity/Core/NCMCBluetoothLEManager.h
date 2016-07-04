@@ -32,7 +32,7 @@
 -(Boolean)startBrowsing;
 -(void)stopBrowsing;
 -(void)invitePeer:(NCMCPeerID*)peerID;
--(void)sendCentralData : (NSData*)data toPerihperal:(NSString*)identifier;
+-(void)sendCentralData : (NSData*)data toPerihperal:(NSString*)identifier withMode:(NCMCSessionSendDataMode)mode;
 -(void)disconnectToPeripheral:(NSString*) identifier;
 
 

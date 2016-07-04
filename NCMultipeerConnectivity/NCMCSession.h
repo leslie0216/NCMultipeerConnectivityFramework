@@ -14,6 +14,11 @@ typedef NS_ENUM (NSInteger, NCMCSessionState) {
     NCMCSessionStateConnected         // connected to the session
 };
 
+typedef NS_ENUM (NSInteger, NCMCSessionSendDataMode) {
+    NCMCSessionSendDataReliable,      // guaranteed reliable and in-order delivery
+    NCMCSessionSendDataUnreliable     // sent immediately without queuing, no guaranteed delivery
+};
+
 @protocol NCMCSessionDelegate;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -27,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)disconnect;
 
--(void)sendData:(NSData *)data toPeers:(NSArray<NCMCPeerID *> *)peerIDs;
+-(void)sendData:(NSData *)data toPeers:(NSArray<NCMCPeerID *> *)peerIDs withMode:(NCMCSessionSendDataMode)mode;
 
 -(NSArray<NCMCPeerID*>*)getConnectedPeers;
 
