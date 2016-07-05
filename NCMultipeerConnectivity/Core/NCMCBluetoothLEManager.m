@@ -76,9 +76,21 @@ static NCMCBluetoothLEManager *_sharedNCMCBluetoothLEManager = nil;
     self.centralService = nil;
     self.peripheralService = nil;
     self.session = nil;
+    
+    if (self.centralManager != nil) {
+        [self.centralManager setDelegate:nil];
+    }
+    
     self.centralManager = nil;
+    if (self.peripheralManager != nil) {
+        [self.peripheralManager setDelegate:nil];
+        [self.peripheralManager removeAllServices];
+    }
     self.peripheralManager = nil;
     self.isDeviceReady = NO;
+    
+    self.concurrentBluetoothLEDelegateQueue = nil;
+    self.serialDataSendingQueue = nil;
 }
 
 -(void)setupDispatchQueue
@@ -306,6 +318,8 @@ static NCMCBluetoothLEManager *_sharedNCMCBluetoothLEManager = nil;
                     }
                 }
             }
+            
+            [info.peripheral setDelegate:nil];
             [self.centralManager cancelPeripheralConnection:info.peripheral];
         }
     }
@@ -318,9 +332,10 @@ static NCMCBluetoothLEManager *_sharedNCMCBluetoothLEManager = nil;
         if (dataToSend == nil) {
             dataToSend = [[NSMutableArray alloc]init];
         }
-        
-        NSArray *msgs = [self makeMsg:data byCapability:[info.peripheral maximumWriteValueLengthForType: CBCharacteristicWriteWithResponse]];
         Boolean isReliable = ((mode == NCMCSessionSendDataReliable) ? YES : NO);
+
+        CBCharacteristicWriteType capabilityType = isReliable ? CBCharacteristicWriteWithResponse : CBCharacteristicWriteWithoutResponse;
+        NSArray *msgs = [self makeMsg:data byCapability:[info.peripheral maximumWriteValueLengthForType: capabilityType]];
         
         dispatch_async(self.serialDataSendingQueue, ^{
             for (NSData *msg in msgs) {
