@@ -18,8 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithSession:(NCMCSession*)session NS_DESIGNATED_INITIALIZER;
 
-- (Boolean)startAdvertisingPeer;// before call this function, should check isDeviceReady, otherwise this function would return NO
-
+- (Boolean)startAdvertisingPeer;
 - (void)stopAdvertisingPeer;
 
 - (Boolean)isDeviceReady;

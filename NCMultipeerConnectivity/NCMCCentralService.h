@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithSession:(NCMCSession*)ncmcsession NS_DESIGNATED_INITIALIZER;
 
-- (Boolean)startBrowsingForPeers; // before call this function, should check isDeviceReady, otherwise this function would return NO
+- (Boolean)startBrowsingForPeers;
 - (void)stopBrowsingForPeers;
 - (void)invitePeer:(NCMCPeerID *)peerID;
 - (Boolean)isDeviceReady;
