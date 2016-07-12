@@ -9,7 +9,7 @@
 
 @implementation NCMCPeerID
 
-@synthesize displayName, identifier;
+@synthesize displayName, identifier, uniqueID;
 
 -(instancetype)initWithDisplayName:(NSString *)name
 {
@@ -18,18 +18,20 @@
     if (self) {
         self.displayName = name;
         self.identifier = [[[NSUUID alloc]init] UUIDString];
+        self.uniqueID = -1;
     }
     
     return self;
 }
 
--(instancetype)initWithDisplayName:(NSString *)n andIdentifier:(NSString *)i
+-(instancetype)initWithDisplayName:(NSString *)_name andIdentifier:(NSString *)_identifier andUniqueID:(char)_uniqueID
 {
     self = [super init];
     
     if (self) {
-        self.displayName = n;
-        self.identifier = i;
+        self.displayName = _name;
+        self.identifier = _identifier;
+        self.uniqueID = _uniqueID;
     }
     
     return self;
@@ -48,6 +50,7 @@
         // Copy NSObject subclasses
         [copy setIdentifier:self.identifier];
         [copy setDisplayName:self.displayName];
+        [copy setUniqueID:self.uniqueID];
     }
     
     return copy;

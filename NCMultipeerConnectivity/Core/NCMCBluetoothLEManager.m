@@ -433,7 +433,7 @@ static NCMCBluetoothLEManager *_sharedNCMCBluetoothLEManager = nil;
         self.discoveredPeripherals[peripheral.identifier.UUIDString] = info;
         peripheral.delegate = self;
         
-        NCMCPeerID* peerID = [[NCMCPeerID alloc]initWithDisplayName:name andIdentifier:peripheral.identifier.UUIDString];
+        NCMCPeerID* peerID = [[NCMCPeerID alloc]initWithDisplayName:name andIdentifier:peripheral.identifier.UUIDString andUniqueID:-1];
         [self.centralService notifyFoundPeer:peerID];
     }
 }
@@ -442,7 +442,7 @@ static NCMCBluetoothLEManager *_sharedNCMCBluetoothLEManager = nil;
 {
     NCMCPeripheralInfo *info = self.discoveredPeripherals[peripheral.identifier.UUIDString];
     if (info) {
-        NCMCPeerID* peerID = [[NCMCPeerID alloc]initWithDisplayName:info.name andIdentifier:peripheral.identifier.UUIDString];
+        NCMCPeerID* peerID = [[NCMCPeerID alloc]initWithDisplayName:info.name andIdentifier:peripheral.identifier.UUIDString andUniqueID:-1];
         [self.centralService notifyLostPeer:peerID];
         
         [self.discoveredPeripherals removeObjectForKey:peripheral.identifier.UUIDString];
@@ -503,7 +503,7 @@ static NCMCBluetoothLEManager *_sharedNCMCBluetoothLEManager = nil;
     {
         NSLog(@"discovery service failed : %@", error.localizedDescription);
         
-        NCMCPeerID* peerID = [[NCMCPeerID alloc]initWithDisplayName:info.name andIdentifier:peripheral.identifier.UUIDString];
+        NCMCPeerID* peerID = [[NCMCPeerID alloc]initWithDisplayName:info.name andIdentifier:peripheral.identifier.UUIDString andUniqueID:-1];
         [self.centralService notifyLostPeer:peerID];
         
         [self.discoveredPeripherals removeObjectForKey:peripheral.identifier.UUIDString];
@@ -530,7 +530,7 @@ static NCMCBluetoothLEManager *_sharedNCMCBluetoothLEManager = nil;
     if (error) {
         NSLog(@"discovery Characteristics failed : %@", error.localizedDescription);
         
-        NCMCPeerID* peerID = [[NCMCPeerID alloc]initWithDisplayName:info.name andIdentifier:peripheral.identifier.UUIDString];
+        NCMCPeerID* peerID = [[NCMCPeerID alloc]initWithDisplayName:info.name andIdentifier:peripheral.identifier.UUIDString andUniqueID:-1];
         [self.centralService notifyLostPeer:peerID];
         
         [self.discoveredPeripherals removeObjectForKey:peripheral.identifier.UUIDString];
@@ -566,7 +566,7 @@ static NCMCBluetoothLEManager *_sharedNCMCBluetoothLEManager = nil;
 #if __CC_PLATFORM_IOS
     NSLog(@"peripheral maxResponse : %lu , maxNoResponse : %lu", (unsigned long)[peripheral maximumWriteValueLengthForType: CBCharacteristicWriteWithResponse], (unsigned long)[peripheral maximumWriteValueLengthForType: CBCharacteristicWriteWithoutResponse]);
 #endif
-   NCMCPeerID* peerID = [[NCMCPeerID alloc]initWithDisplayName:info.name andIdentifier:peripheral.identifier.UUIDString];
+   NCMCPeerID* peerID = [[NCMCPeerID alloc]initWithDisplayName:info.name andIdentifier:peripheral.identifier.UUIDString andUniqueID:-1];
     if (isReadCharFound && isWriteWithResponseCharFoud && isWriteWithoutResponseCharFoud) {
         // send central info to peripheral and wait for perpheral confirm the connection
         if (self.session != nil) {

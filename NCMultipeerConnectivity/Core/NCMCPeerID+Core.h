@@ -13,7 +13,8 @@
 
 @property (strong, nonatomic)NSString *identifier;
 @property (strong, nonatomic)NSString *displayName;
+@property (assign, nonatomic)char uniqueID;
 
-- (instancetype)initWithDisplayName:(NSString *)n andIdentifier:(NSString*)i;
+- (instancetype)initWithDisplayName:(NSString *)_name andIdentifier:(NSString*)_identifier andUniqueID:(char)_uniqueID;
 
 @end

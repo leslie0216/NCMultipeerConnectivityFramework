@@ -13,11 +13,12 @@
 @interface NCMCSession()
 
 @property (strong, nonatomic)NSString* serviceID;
-@property (assign, nonatomic)char myUniqueID;
-@property (strong, nonatomic)NSMutableDictionary<NSString*, NCMCDeviceInfo*> *connectedDevices;
+@property (strong, nonatomic)NSMutableArray<NCMCDeviceInfo*> *connectedDevices;
 
 -(void)notifyPeerStateChanged:(NCMCPeerID *)peerID newState:(NCMCSessionState)state;
 -(void)notifyDidReceiveData:(NSData *)data fromPeer:(NCMCPeerID *)peerID;
+
+-(char)getDeviceUniqueIDByIdentifier:(NSString*)identifier;
 
 -(void)onDataReceived:(NSData *)data from:(NSString *)identifier;
 -(void)onPeripheralDisconnected:(NSString *)identifier; // used by central
@@ -26,6 +27,5 @@
 -(void)sendCentralConnectionRequestToPeer:(NCMCPeerID *)peerID;
 
 -(void)setSelfAsCentral;
--(NSString*)getCentralDeviceIdentifier;
 
 @end
