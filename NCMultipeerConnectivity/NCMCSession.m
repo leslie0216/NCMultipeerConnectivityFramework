@@ -13,10 +13,10 @@
 typedef enum NCMCSystemMessageType {
     PERIPHERAL_CENTRAL_REFUSE_INVITATION = 0,
     PERIPHERAL_CENTRAL_ACCEPT_INVITATION = 1,
-    CENTRA_PERIPHERAL_CONNECTION_REQUEST = 2,
-    CENTRA_PERIPHERAL_ASSIGN_IDENTIFIER = 3,
-    CENTRA_PERIPHERAL_DEVICE_CONNECTED = 4,
-    CENTRA_PERIPHERAL_DEVICE_DISCONNECTED = 5,
+    CENTRAL_PERIPHERAL_CONNECTION_REQUEST = 2,
+    CENTRAL_PERIPHERAL_ASSIGN_IDENTIFIER = 3,
+    CENTRAL_PERIPHERAL_DEVICE_CONNECTED = 4,
+    CENTRAL_PERIPHERAL_DEVICE_DISCONNECTED = 5,
 } NCMCSystemMessageType;
 
 @implementation NCMCSession
@@ -49,9 +49,9 @@ typedef enum NCMCSystemMessageType {
     for (NCMCPeerID* peerID in peerIDs) {
         NSData* msg = [self packUserMessage:data withTargetPeerID:peerID];
         if ([[NCMCBluetoothLEManager instance]isCentral]) {
-            [[NCMCBluetoothLEManager instance] sendCentralData:msg toPerihperal:peerID.identifier withMode:mode];
+            [[NCMCBluetoothLEManager instance] sendCentralData:msg toPeripheral:peerID.identifier withMode:mode];
         } else {
-            [[NCMCBluetoothLEManager instance] sendPeriheralData:msg toCentral: [self getCentralDeviceIdentifier]];
+            [[NCMCBluetoothLEManager instance] sendPeripheralData:msg toCentral: [self getCentralDeviceIdentifier]];
         }
     }
 }
@@ -83,7 +83,7 @@ typedef enum NCMCSystemMessageType {
     }
 }
 
--(void)onPeriphearalDisconnected:(NSString *)identifier
+-(void)onPeripheralDisconnected:(NSString *)identifier
 {
     NCMCDeviceInfo *info = self.connectedDevices[identifier];
     if (info != nil) {
@@ -91,22 +91,22 @@ typedef enum NCMCSystemMessageType {
         NCMCPeerID *peerID= [[NCMCPeerID alloc]initWithDisplayName:info.name andIdentifier:identifier];
         [self notifyPeerStateChanged:peerID newState:NCMCSessionStateNotConnected];
         
-        // if central notify all periherals
+        // if central notify all peripherals
         if ([[NCMCBluetoothLEManager instance] isCentral]) {
             NSData* deviceData = [self encodeDeviceInfo:info];
-            NSData* sysData = [self packSystemMessageWithType:CENTRA_PERIPHERAL_DEVICE_DISCONNECTED andMessage:deviceData];
+            NSData* sysData = [self packSystemMessageWithType:CENTRAL_PERIPHERAL_DEVICE_DISCONNECTED andMessage:deviceData];
             
             NSEnumerator *enmuerator = [self.connectedDevices objectEnumerator];
             
-            for (NCMCDeviceInfo *info in enmuerator) {
-                if (info.uniqueID != 0) {
-                    [[NCMCBluetoothLEManager instance] sendCentralData:sysData toPerihperal:info.identifier  withMode:NCMCSessionSendDataReliable];
+            for (NCMCDeviceInfo *peripheralInfo in enmuerator) {
+                if (peripheralInfo.uniqueID != 0) {
+                    [[NCMCBluetoothLEManager instance] sendCentralData:sysData toPeripheral:peripheralInfo.identifier  withMode:NCMCSessionSendDataReliable];
                 }
             }
         }
+        
+        [self.connectedDevices removeObjectForKey:identifier];
     }
-    
-    [self.connectedDevices removeObjectForKey:identifier];
 }
 
 -(void)onCentralDisconnected
@@ -237,9 +237,9 @@ typedef enum NCMCSystemMessageType {
     
     NSData* centralDeviceData = [self encodeDeviceInfo:centralDevice];
     
-    NSData* sysData = [self packSystemMessageWithType:CENTRA_PERIPHERAL_CONNECTION_REQUEST andMessage:centralDeviceData];
+    NSData* sysData = [self packSystemMessageWithType:CENTRAL_PERIPHERAL_CONNECTION_REQUEST andMessage:centralDeviceData];
     
-    [[NCMCBluetoothLEManager instance] sendCentralData:sysData toPerihperal:peerID.identifier withMode:NCMCSessionSendDataReliable];
+    [[NCMCBluetoothLEManager instance] sendCentralData:sysData toPeripheral:peerID.identifier withMode:NCMCSessionSendDataReliable];
 }
 
 void(^myInvitationHandler)(BOOL, NCMCSession*, NCMCPeerID*) = ^(BOOL accept, NCMCSession* session, NCMCPeerID *peerID) {
@@ -254,7 +254,7 @@ void(^myInvitationHandler)(BOOL, NCMCSession*, NCMCPeerID*) = ^(BOOL accept, NCM
         
         NSData* sysData = [session packSystemMessageWithType:PERIPHERAL_CENTRAL_ACCEPT_INVITATION andMessage:deviceData];
         
-        [[NCMCBluetoothLEManager instance] sendPeriheralData:sysData toCentral:peerID.identifier];
+        [[NCMCBluetoothLEManager instance] sendPeripheralData:sysData toCentral:peerID.identifier];
         
         // clear and init local connected information
         NCMCDeviceInfo* centralDevice = [[NCMCDeviceInfo alloc]init];
@@ -271,7 +271,7 @@ void(^myInvitationHandler)(BOOL, NCMCSession*, NCMCPeerID*) = ^(BOOL accept, NCM
         // send refuse to central
         NSData* sysData = [session packSystemMessageWithType:PERIPHERAL_CENTRAL_REFUSE_INVITATION andMessage:nil];
         
-        [[NCMCBluetoothLEManager instance] sendPeriheralData:sysData toCentral:peerID.identifier];
+        [[NCMCBluetoothLEManager instance] sendPeripheralData:sysData toCentral:peerID.identifier];
         
         // remove central device from local
         [session.connectedDevices removeObjectForKey:peerID.identifier];
@@ -312,26 +312,26 @@ void(^myInvitationHandler)(BOOL, NCMCSession*, NCMCPeerID*) = ^(BOOL accept, NCM
                 
                 NSData* deviceData = [self encodeDeviceInfo:peripheralDevice];
                 
-                NSData* sysData = [self packSystemMessageWithType:CENTRA_PERIPHERAL_ASSIGN_IDENTIFIER andMessage:deviceData];
+                NSData* sysData = [self packSystemMessageWithType:CENTRAL_PERIPHERAL_ASSIGN_IDENTIFIER andMessage:deviceData];
                 
-                [[NCMCBluetoothLEManager instance] sendCentralData:sysData toPerihperal:identifier withMode:NCMCSessionSendDataReliable];
+                [[NCMCBluetoothLEManager instance] sendCentralData:sysData toPeripheral:identifier withMode:NCMCSessionSendDataReliable];
                 
-                // update new connected device info to all connected periherals
-                NSData* sysBroadcastNewDeviceData = [self packSystemMessageWithType:CENTRA_PERIPHERAL_DEVICE_CONNECTED andMessage:deviceData];
+                // update new connected device info to all connected peripherals
+                NSData* sysBroadcastNewDeviceData = [self packSystemMessageWithType:CENTRAL_PERIPHERAL_DEVICE_CONNECTED andMessage:deviceData];
                 for (NSString *key in self.connectedDevices) {
                     NCMCDeviceInfo* peripheralDeviceInfo = self.connectedDevices[key];
                     if (peripheralDeviceInfo.uniqueID != 0) {
-                        [[NCMCBluetoothLEManager instance] sendCentralData:sysBroadcastNewDeviceData toPerihperal:peripheralDeviceInfo.identifier  withMode:NCMCSessionSendDataReliable];
+                        [[NCMCBluetoothLEManager instance] sendCentralData:sysBroadcastNewDeviceData toPeripheral:peripheralDeviceInfo.identifier  withMode:NCMCSessionSendDataReliable];
                     }
                 }
                 
-                // update all connected periherals to new connected device
+                // update all connected peripherals to new connected device
                 for (NSString *key in self.connectedDevices) {
                     NCMCDeviceInfo* peripheralDeviceInfo = self.connectedDevices[key];
                     if (peripheralDeviceInfo.uniqueID != 0) {
                         NSData* peripheralDeviceData = [self encodeDeviceInfo:peripheralDeviceInfo];
-                        NSData* sysBroadcastData = [self packSystemMessageWithType:CENTRA_PERIPHERAL_DEVICE_CONNECTED andMessage:peripheralDeviceData];
-                        [[NCMCBluetoothLEManager instance] sendCentralData:sysBroadcastData toPerihperal:identifier  withMode:NCMCSessionSendDataReliable];
+                        NSData* sysBroadcastData = [self packSystemMessageWithType:CENTRAL_PERIPHERAL_DEVICE_CONNECTED andMessage:peripheralDeviceData];
+                        [[NCMCBluetoothLEManager instance] sendCentralData:sysBroadcastData toPeripheral:identifier  withMode:NCMCSessionSendDataReliable];
                     }
                 }
                 
@@ -344,13 +344,13 @@ void(^myInvitationHandler)(BOOL, NCMCSession*, NCMCPeerID*) = ^(BOOL accept, NCM
 
                 break;
             }
-            case CENTRA_PERIPHERAL_CONNECTION_REQUEST:
+            case CENTRAL_PERIPHERAL_CONNECTION_REQUEST:
             {
                 if (![[self getCentralDeviceIdentifier] isEqualToString:@""]) {
                     // refuse connection directly when another central is being processed
                     NSData* sysData = [self packSystemMessageWithType:PERIPHERAL_CENTRAL_REFUSE_INVITATION andMessage:nil];
                     
-                    [[NCMCBluetoothLEManager instance] sendPeriheralData:sysData toCentral:identifier];
+                    [[NCMCBluetoothLEManager instance] sendPeripheralData:sysData toCentral:identifier];
                     
                 }
                 
@@ -370,7 +370,7 @@ void(^myInvitationHandler)(BOOL, NCMCSession*, NCMCPeerID*) = ^(BOOL accept, NCM
                 
                 break;
             }
-            case CENTRA_PERIPHERAL_ASSIGN_IDENTIFIER:
+            case CENTRAL_PERIPHERAL_ASSIGN_IDENTIFIER:
             {
                 NCMCDeviceInfo* device = [self decodeDeviceInfo:dataMsg];
                 if ([device.name isEqualToString:self.myPeerID.displayName]) {
@@ -386,7 +386,7 @@ void(^myInvitationHandler)(BOOL, NCMCSession*, NCMCPeerID*) = ^(BOOL accept, NCM
                 
                 break;
             }
-            case CENTRA_PERIPHERAL_DEVICE_CONNECTED:
+            case CENTRAL_PERIPHERAL_DEVICE_CONNECTED:
             {
                 NCMCDeviceInfo* device = [self decodeDeviceInfo:dataMsg];
                 
@@ -401,7 +401,7 @@ void(^myInvitationHandler)(BOOL, NCMCSession*, NCMCPeerID*) = ^(BOOL accept, NCM
                 }
                 break;
             }
-            case CENTRA_PERIPHERAL_DEVICE_DISCONNECTED:
+            case CENTRAL_PERIPHERAL_DEVICE_DISCONNECTED:
             {
                 NCMCDeviceInfo* device = [self decodeDeviceInfo:dataMsg];
                 if (self.connectedDevices[device.identifier] != nil) {
@@ -427,13 +427,13 @@ void(^myInvitationHandler)(BOOL, NCMCSession*, NCMCPeerID*) = ^(BOOL accept, NCM
                 // data from peripheral to peripheral
                 NCMCDeviceInfo* targetDevice = [self getDeviceInfoByUniqueID:extraInfo];
                 if (targetDevice != nil) {
-                    [[NCMCBluetoothLEManager instance] sendCentralData:data toPerihperal:targetDevice.identifier  withMode:NCMCSessionSendDataReliable];
+                    [[NCMCBluetoothLEManager instance] sendCentralData:data toPeripheral:targetDevice.identifier  withMode:NCMCSessionSendDataReliable];
                 }
             }
         } else {
             if (self.myUniqueID == extraInfo) {
                 NCMCDeviceInfo *deviceInfo = [self getDeviceInfoByUniqueID:extraInfo2];
-                NCMCPeerID *peerID = [[NCMCPeerID alloc]initWithDisplayName:deviceInfo.name andIdentifier:identifier];
+                NCMCPeerID *peerID = [[NCMCPeerID alloc]initWithDisplayName:deviceInfo.name andIdentifier:deviceInfo.identifier];
                 [self notifyDidReceiveData:dataMsg fromPeer:peerID];
             }
         }

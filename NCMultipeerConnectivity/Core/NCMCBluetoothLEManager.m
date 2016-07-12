@@ -335,7 +335,7 @@ static NCMCBluetoothLEManager *_sharedNCMCBluetoothLEManager = nil;
     }
 }
 
--(void)sendCentralData : (NSData*)data toPerihperal:(NSString*)identifier  withMode:(NCMCSessionSendDataMode)mode
+-(void)sendCentralData : (NSData*)data toPeripheral:(NSString*)identifier  withMode:(NCMCSessionSendDataMode)mode
 {
     NCMCPeripheralInfo *info = self.discoveredPeripherals[(NSString*)identifier];
     if (info) {
@@ -482,7 +482,7 @@ static NCMCBluetoothLEManager *_sharedNCMCBluetoothLEManager = nil;
         }*/
         
         if (self.session != nil) {
-            [self.session onPeriphearalDisconnected:peripheral.identifier.UUIDString];
+            [self.session onPeripheralDisconnected:peripheral.identifier.UUIDString];
         }
         
         [self.discoveredPeripherals removeObjectForKey:peripheral.identifier.UUIDString];
@@ -670,7 +670,7 @@ static NCMCBluetoothLEManager *_sharedNCMCBluetoothLEManager = nil;
     isBrowsingOrAdvertising = NO;
 }
 
--(void)sendPeriheralData : (NSData*)data toCentral:(NSString*)identifier
+-(void)sendPeripheralData : (NSData*)data toCentral:(NSString*)identifier
 {
     if (!self.isCentral && ![identifier isEqualToString:@""]) {
         CBCentral* centralDevice = self.connectedCentrals[identifier];
@@ -692,11 +692,11 @@ static NCMCBluetoothLEManager *_sharedNCMCBluetoothLEManager = nil;
             }
         });
         
-        [self executeSendPeriheralData];
+        [self executeSendPeripheralData];
     }
 }
 
-- (void)executeSendPeriheralData
+- (void)executeSendPeripheralData
 {
     dispatch_async(self.serialDataSendingQueue, ^{
         if (dataToSend == nil || dataToSend.count == 0) {
@@ -797,7 +797,7 @@ static NCMCBluetoothLEManager *_sharedNCMCBluetoothLEManager = nil;
 
 - (void)peripheralManagerIsReadyToUpdateSubscribers:(CBPeripheralManager *)peripheral
 {
-    [self executeSendPeriheralData];
+    [self executeSendPeripheralData];
 }
 
 - (void)peripheralManager:(CBPeripheralManager *)peripheral didReceiveWriteRequests:(NSArray<CBATTRequest *> *)requests

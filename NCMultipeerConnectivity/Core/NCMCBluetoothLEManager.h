@@ -32,7 +32,7 @@
 -(Boolean)startBrowsing;
 -(void)stopBrowsing;
 -(void)invitePeer:(NCMCPeerID*)peerID;
--(void)sendCentralData : (NSData*)data toPerihperal:(NSString*)identifier withMode:(NCMCSessionSendDataMode)mode;
+-(void)sendCentralData : (NSData*)data toPeripheral:(NSString*)identifier withMode:(NCMCSessionSendDataMode)mode;
 -(void)disconnectToPeripheral:(NSString*) identifier;
 
 
@@ -40,6 +40,6 @@
 -(void)setupPeripheralEnv:(NCMCPeripheralService*)service;
 -(Boolean)startAdvertising;
 -(void)stopAdvertising;
--(void)sendPeriheralData : (NSData*)data toCentral:(NSString*)identifier;
+-(void)sendPeripheralData : (NSData*)data toCentral:(NSString*)identifier;
 
 @end
