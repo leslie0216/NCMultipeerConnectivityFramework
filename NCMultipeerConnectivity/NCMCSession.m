@@ -296,7 +296,6 @@ void(^myInvitationHandler)(BOOL, NCMCSession*, NCMCPeerID*) = ^(BOOL accept, NCM
             {
                 // assign peripheral info to peripheral
                 NCMCDeviceInfo* newPeripheralDevice = [self decodeDeviceInfo:dataMsg fromPeer:identifier];
-                newPeripheralDevice.identifier = identifier;
                 newPeripheralDevice.uniqueID = (char)[self.connectedDevices count] + 1; // id 0 is reserved for central
                 
                 NSData* newDeviceData = [self encodeDeviceInfo:newPeripheralDevice];
@@ -338,10 +337,6 @@ void(^myInvitationHandler)(BOOL, NCMCSession*, NCMCPeerID*) = ^(BOOL accept, NCM
                 }
                 
                 NCMCDeviceInfo* centralDevice = [self decodeDeviceInfo:dataMsg fromPeer:identifier];
-                
-                if (centralDevice.uniqueID == 0) {
-                    centralDevice.identifier = identifier; // set with its real identifier
-                }
                 
                 // save central device
                 [self.connectedDevices addObject:centralDevice];
