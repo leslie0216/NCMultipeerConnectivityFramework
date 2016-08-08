@@ -208,7 +208,7 @@ static NCMCBluetoothLEManager *_sharedNCMCBluetoothLEManager = nil;
             if (isCompleted) {
                 
                 if (self.session != nil) {
-                    [self.session onDataReceived:msgData from:uuid];
+                    [self.session onDataReceived:[data data] from:uuid];
                 }
                 
                 [data clearData];
